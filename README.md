@@ -1,4 +1,4 @@
-# neuroCombat
+# neurocombat
 
 ## Overview
 This repository contains the ComBat algorithm for correcting batch effects in neuroimaging (or microarray) data. This code runs ~10-50 times faster than the R version, and is incredibly simplified in that you do NOT have to create any design matrices, etc. All you have to do is pass in TWO numpy arrays or pandas DataFrames (the dataset to correct, and the dataset containing the batch/confound/target variables).
@@ -35,8 +35,8 @@ data : a pandas data frame or numpy array
     e.g. cortical thickness measurements, image voxels, etc
 
 covars : a pandas data frame w/ shape = (samples, features)
-    demographic/phenotypic/behavioral/batch data 
-    
+    demographic/phenotypic/behavioral/batch data
+
 batch_col : string
     - batch effect variable
     - e.g. scan site
@@ -54,7 +54,7 @@ Returns
 - A numpy array with the same shape as `data` which has now been ComBat-corrected
 ```
 
-## Correspondance to SVA (R) version of ComBat
+## Correspondence to SVA (R) version of ComBat
 
 <b> The most significant difference between the SVA and neuroCombat algorithms is that the neuroCombat version accepts input data X of shape (n_samples, n_features) while SVA accepts (n_features, n_samples).</b>
 
@@ -69,13 +69,13 @@ combat_data <- ComBat(dat=X,batch=batch, mod=model)
 In this Python version, you would do the following (assuming `covars` is a Pandas Dataframe with appropriate column labels):
 
 ```Python
-combat_data = neuroCombat(data=X, 
-                          covars=Y, 
-                          batch_col='batch', 
+combat_data = neuroCombat(data=X,
+                          covars=Y,
+                          batch_col='batch',
                           discrete_cols=['c1','c2'])
 ```
 
-As you see, there is no need for a model matrix. 
+As you see, there is no need for a model matrix.
 
 
 ## Examples
