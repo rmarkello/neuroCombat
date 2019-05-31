@@ -399,8 +399,8 @@ def adjust_data_final(s_data, design, gamma_star, delta_star, stand_mean,
         dsq = np.sqrt(delta_star[j, :])
         dsq = dsq.reshape((len(dsq), 1))
         denom = np.dot(dsq, np.ones((1, sample_per_batch[j])))
-        numer = np.array(bayesdata[:, batch_idxs] -
-                         np.dot(batch_design[batch_idxs, :], gamma_star).T)
+        numer = np.array(bayesdata[:, batch_idxs]
+                         - np.dot(batch_design[batch_idxs, :], gamma_star).T)
 
         bayesdata[:, batch_idxs] = numer / denom
 
